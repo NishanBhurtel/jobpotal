@@ -29,8 +29,6 @@ app.get("/health", (req, res) => {
 app.use("/api/v1/user", userRoute);
 
 
-const PORT = process.env.PORT || 8000;
-
 // Connect to DB first, then start server
 connectDB()
   .then(() => {
@@ -41,3 +39,12 @@ connectDB()
   .catch((err) => {
     console.error("Server failed to start due to DB error:", err);
   });
+
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+}
+
+
+)
